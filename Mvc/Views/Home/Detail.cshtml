@@ -1,0 +1,125 @@
+﻿@using Web.Common
+@model Web.ViewModels.Bank.BankModel
+@Html.Partial("~/Views/Shared/Authorized.cshtml")
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h3>
+        Bank Detail
+    </h3>
+</section>
+<section class="content">
+    <div id="errorMessage"></div>
+    <div class="row">
+
+        <form role="form" class="form-horizontal">
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <div class="form-group row">
+                        <br />
+                        <div class="col-md-3 pull-right">
+
+                            <a href="@Url.Action("Index", "Bank")" class="btn btn-sm bg-blue" data-placement="top" title="Back To List">
+                                <i class="fa fa-arrow-circle-left"></i> Back To List
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- /.box-header -->
+
+                <div class="form-group row">
+                    <div class="control-label col-md-2">
+                        <label for="AccountName">
+                            Account Code
+                        </label>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label>
+                            @Model.AccountCode
+                        </label>
+                    </div>
+
+                    <div class="control-label col-md-2">
+                        <label for="AccountName">
+                            Account Name
+                            
+                        </label>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label>
+                            @Model.AccountName
+                        </label>
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group row">
+                    <div class="control-label col-md-2">
+                        <label for="AccountNumber">
+                            Account Number
+
+                        </label>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label>
+                            @Model.AccountNumber
+                        </label>
+                    </div>
+
+                    <div class="control-label col-md-2">
+                        <label for="BankName">
+                            Bank Name
+                        </label>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label>
+                            @Model.BankName
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="control-label col-md-2">
+                        <label for="RoutingNumber">
+                            Routing Number
+
+                        </label>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label>
+                            @Model.RoutingNumber
+                        </label>
+                    </div>
+
+                    <div class="control-label col-md-2">
+                        <label for="Description">
+                            Description
+                        </label>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label>
+                            @Model.Description
+                        </label>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </form>
+
+
+
+    </div>
+
+</section>
+
+

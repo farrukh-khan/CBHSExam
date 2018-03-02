@@ -1,0 +1,24 @@
+.alert-msg {
+            display: block;
+            margin-left: 120px;
+            margin-bottom: -4px;
+            margin-top: 40px;
+        }
+
+        .form-group.error label,
+        .form-group.error .alert-msg {
+            color: #c73939;
+        }
+
+        .form-group.error input {
+            border-color: #c73939;
+        }
+
+        .form-group.success label,
+        .form-group.success .alert-msg {
+            color: #379e48;
+        }
+
+        .form-group.success input {
+            border-color: #379e48;
+        }

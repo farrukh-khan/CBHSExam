@@ -1,0 +1,149 @@
+﻿@model PagedList.IPagedList<DataAccess.BLL.Member>
+
+@using PagedList.Mvc;
+
+
+<div class=" table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Member Id
+                </th>
+
+                <th>
+                    First Name
+                </th>
+
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Email
+                </th>
+
+                <th>
+                    Date of Birth
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int counter = 1;}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @counter
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MemberId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+
+                        @Convert.ToDateTime(item.DateOfBirth.ToString()).ToString("MM/dd/yyyy")
+
+                        @*@Html.DisplayFor(modelItem => Convert.ToDateTime(item.DateOfBirth.ToString()).ToString("MM/dd/yyyy"))*@
+                    </td>
+
+                    <td style="text-align:center">
+
+                        <button type="button" onclick="editFunc('@item.MemberId')" class="btn btn-sm btn-info" data-placement="top" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </button>
+
+
+                        <button id="@item.MemberId" class="btn btn-sm btn-danger" data-placement="left" data-toggle="confirmation"
+                                data-btn-ok-label="Continue" data-btn-ok-icon="glyphicon glyphicon-share-alt"
+                                data-btn-ok-class="btn-success"
+                                data-btn-cancel-label="Stoooop!" data-btn-cancel-icon="glyphicon glyphicon-ban-circle"
+                                data-btn-cancel-class="btn-danger"
+                                data-title="Are you sure, you want to delete?" data-content="">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+
+
+
+                    </td>
+                </tr>
+
+                counter++;
+            }
+        </tbody>
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+<script type="text/javascript">
+        $('[data-toggle=confirmation]').confirmation({
+            rootSelector: '[data-toggle=confirmation]',
+
+            onConfirm: function () {
+                deleteFunc($(this).attr("id"));
+            },
+            onCancel: function () {
+            },
+        });
+
+        function deleteFunc(id) {
+
+            $.ajax({
+                url: '@Url.Action("Delete", "Member")',
+                data: { Id: id },
+                type: 'POSt',
+                success: function (result) {
+                    if (result.Status == 1) {
+
+                        $("#partailGrid").html(result.Html);
+                    }
+                    else {
+                        $.notify(result.Message, "error");
+                    }
+                }
+            });
+    }
+
+
+      function editFunc(id) {
+
+            $.ajax({
+                url: '@Url.Action("Edit", "Member")',
+                data: { Id: id },
+                type: 'POSt',
+                success: function (result) {
+                    if (result.Status == 1) {
+                        $("#partailNewUpdate").html(result.Html);
+                    }
+                    else {
+                        $.notify(result.Message, "error");
+                    }
+                }
+            });
+        }
+
+
+
+
+
+</script>
+
+
+

@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PagedList.IPagedList<DataAccess.BLL.Member>
+@using PagedList.Mvc;
+
+<section class="content-header">
+
+
+
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <div class="panel-title">
+                <h4>
+                    Member Add/Update
+                </h4>
+            </div>
+
+        </div>
+
+        <div class="panel-body">
+
+            <div id="partailNewUpdate">
+                @Html.Partial("~/Views/Member/_NewUpdate.cshtml", new DataAccess.BLL.Member() { DateOfBirth = DateTime.Now })
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <div class="panel-title">
+                <h4>
+                    Members
+                </h4>
+            </div>
+
+        </div>
+
+        <div class="panel-body">
+
+            <div id="partailGrid">
+                @Html.Partial("~/Views/Member/_MemberGrid.cshtml", Model)
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+

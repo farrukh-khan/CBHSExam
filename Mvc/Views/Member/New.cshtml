@@ -1,0 +1,83 @@
+﻿@using Web.Common
+@model Web.ViewModels.Bank.BankModel
+@Html.Partial("~/Views/Shared/Authorized.cshtml")
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content-header">
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+
+            <div class="btn-group pull-right">
+                <a href="@Url.Action("Index", "Bank")" class="btn btn-default  ember-view popovercontainer " data-placement="top" title="Back To List">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </a>
+            </div>
+
+            <div class="panel-title">
+                <h4>
+                    New Bank
+                </h4>
+
+
+            </div>
+
+        </div>
+        @Html.Partial("~/Views/Bank/_NewUpdate.cshtml", Model)
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+<script type="text/javascript">
+
+    $('#data-form').submit(function () {
+        var btnLadda = Ladda.create(document.querySelector('#btnSave'));
+        btnLadda.start();
+
+        var formData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            data: formData,
+            url: '@Url.Action("New", "Bank")',
+            success: function (result) {
+
+                btnLadda.toggle();
+
+                if (result.Status == 1) {
+                    $("#errorMessage").addClass("alert alert-success").html(result.Message);
+
+                    window.location = result.RedirectUrl;
+
+                }
+                else {
+                    $("#errorMessage").addClass("alert alert-danger").html(result.Message);
+
+                }
+
+                return false;
+            }
+
+        });
+
+        return false;
+
+    });
+
+
+
+</script>

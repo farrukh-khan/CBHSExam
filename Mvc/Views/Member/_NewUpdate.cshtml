@@ -1,0 +1,111 @@
+﻿
+@model DataAccess.BLL.Member
+
+
+<form id="data-form" role="form" class="form-horizontal">
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.MemberId)
+    @Html.HiddenFor(x => x.IsActive)
+
+    <div class="panel-body">
+
+
+        <div class="form-group row">
+
+            <div class="control-label col-md-2 text-muted">
+                First Name
+            </div>
+            <div class="col-md-3 ">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "parsley-validated  form-control" })
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+
+            <div class="control-label col-md-2 text-muted">
+                Email
+            </div>
+            <div class="col-md-3 ">
+                @Html.TextBoxFor(model => model.Email, new { @class = "parsley-validated  form-control" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="control-label col-md-2 text-muted">
+                Last Name
+            </div>
+            <div class="col-md-3 ">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "parsley-validated  form-control" })
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+
+            <div class="control-label col-md-2 text-muted">
+                Date of Birth
+            </div>
+            <div class="col-md-3 ">
+                @Html.TextBoxFor(model => model.DateOfBirth, new { @Value = Model.DateOfBirth.ToString("MM/dd/yyyy"), @class = "parsley-validated  form-control" })
+                @Html.ValidationMessageFor(model => model.DateOfBirth)
+            </div>
+        </div>
+
+    </div>
+    <div class="panel-footer text-right">
+
+        <button type="reset" class="btn btn-default">
+            Cancel
+        </button>
+        <button class="btn btn-danger ladda-button" id="btnSave" type="submit" data-style="expand-right" data-size="s">
+            <span class="ladda-label"><i class="fa fa-save"></i> &nbsp;&nbsp; Save</span>
+        </button>
+
+    </div>
+</form>
+<script type="text/javascript">
+
+
+    $(function () {
+
+        $('#DateOfBirth').Zebra_DatePicker({ format: 'm/d/Y',});
+
+
+
+        $('#data-form').submit(function () {
+
+            try {
+
+            var btnLadda = Ladda.create(document.querySelector('#btnSave'));
+            btnLadda.start();
+            var $form = $(this);
+
+
+            $.ajax({
+                type: "POST",
+                data: $form.serialize(),
+                url: '@Url.Action("Save", "Member")',
+                success: function (result) {
+                    btnLadda.toggle();
+                    if (result.Status == 1) {
+                        $form[0].reset();
+                        $("#partailGrid").html(result.Html);
+                        $.notify(result.Message, "success");
+                    }
+                    else {
+                        $.notify(result.Message, "error");
+                    }
+                }
+            });
+            return false;
+            } catch (e) {
+                $.notify(e.message, "error");
+            }
+
+
+        });
+
+    });
+
+
+</script>

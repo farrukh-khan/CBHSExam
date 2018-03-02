@@ -1,0 +1,160 @@
+﻿@model Web.ViewModels.Bank.BankModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div id="page-title">
+
+    <h3>
+        Bank Head
+        <small>
+            Are you Sure You Want to Delete this Bank..
+        </small>
+    </h3>
+</div><!-- #page-title -->
+
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <div id="page-content">
+
+        <div class="row">
+            <div class="example-box">
+                <div class="example-code">
+
+                    <div class="form-row">
+                        <div class="form-label col-md-2 form-label-right">
+                            
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+
+                    <form id="demo-form-2" action="" class="col-md-10 form-label-right center-margin" method="">
+                        @Html.ValidationSummary(true)
+                        <div class="form-row">
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Name
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.Bank1)
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Phone
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.Phone)
+
+                            </div>
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Cell
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.Cell)
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Dealing Person
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.DealingPerson1)
+
+                            </div>
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Cell
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.Cell1)
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Dealing Person
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.DealingPerson2)
+
+                            </div>
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Cell
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.Cell2)
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    Address
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.Address)
+
+                            </div>
+                            <div class="form-label col-md-2 form-label-right">
+                                <label for="">
+                                    City
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+                            <div class="form-input col-md-3">
+                                @Html.DisplayFor(model => model.City)
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label col-md-2 float-right" style="margin-right: 15%">
+                                <input type="submit" value="Delete" class="btn medium primary-bg  "/>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

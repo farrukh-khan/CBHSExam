@@ -1,0 +1,10 @@
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\DataAccess.dll.config
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\DataAccess.dll
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\DataAccess.pdb
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\EntityFramework.dll
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\EntityFramework.SqlServer.dll
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\EntityFramework.xml
+F:\Interview Test\CBHSEvaluation\Datasource\bin\Release\EntityFramework.SqlServer.xml
+F:\Interview Test\CBHSEvaluation\Datasource\obj\Release\DataAccess.csproj.CoreCompileInputs.cache
+F:\Interview Test\CBHSEvaluation\Datasource\obj\Release\DataAccess.dll
+F:\Interview Test\CBHSEvaluation\Datasource\obj\Release\DataAccess.pdb

@@ -1,0 +1,14 @@
+F:\Interview Test\CBHSEvaluation\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+F:\Interview Test\CBHSEvaluation\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\DataAccess.dll.config
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\DataAccess.dll
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\DataAccess.pdb
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\EntityFramework.dll
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\EntityFramework.SqlServer.dll
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\EntityFramework.xml
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\EntityFramework.SqlServer.xml
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\Service.dll.config
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\Service.dll
+F:\Interview Test\CBHSEvaluation\Service\bin\Debug\Service.pdb
+F:\Interview Test\CBHSEvaluation\Service\obj\Debug\Service.dll
+F:\Interview Test\CBHSEvaluation\Service\obj\Debug\Service.pdb
